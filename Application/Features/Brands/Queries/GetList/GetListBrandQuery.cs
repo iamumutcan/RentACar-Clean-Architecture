@@ -1,5 +1,4 @@
-﻿using Application.Features.Brands.Queries.GetList;
-using Application.Services.Repositories;
+﻿using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Request;
 using Core.Application.Response;
@@ -12,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Brands.Queries;
+namespace Application.Features.Brands.Queries.GetList;
 
 public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDto>>
 {
