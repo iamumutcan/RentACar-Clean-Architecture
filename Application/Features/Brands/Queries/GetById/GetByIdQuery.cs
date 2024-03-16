@@ -2,18 +2,13 @@
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Brands.Queries.GetById;
 
-public class GetByIdQuery:IRequest<GetByIdBrandResponse>
+public class GetByIdQuery : IRequest<GetByIdBrandResponse>
 {
     public Guid Id { get; set; }
-    public class GetByIdQueryHandler:IRequestHandler<GetByIdQuery,GetByIdBrandResponse>
+    public class GetByIdQueryHandler : IRequestHandler<GetByIdQuery, GetByIdBrandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IBrandRepository _brandRepository;
@@ -26,11 +21,11 @@ public class GetByIdQuery:IRequest<GetByIdBrandResponse>
 
         public async Task<GetByIdBrandResponse> Handle(GetByIdQuery request, CancellationToken cancellationToken)
         {
-         Brand? brand = await _brandRepository.GetAsync(predicate:b=>b.Id == request.Id,withDeleted:true,cancellationToken:cancellationToken);
+            Brand? brand = await _brandRepository.GetAsync(predicate: b => b.Id == request.Id, withDeleted: true, cancellationToken: cancellationToken);
             GetByIdBrandResponse response = _mapper.Map<GetByIdBrandResponse>(brand);
             return response;
 
         }
     }
-  
+
 }

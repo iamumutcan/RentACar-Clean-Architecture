@@ -1,7 +1,5 @@
 ﻿using Core.Persistence.Repositories;
 using Domain.Enums;
-using System.Drawing;
-using System.Reflection;
 
 namespace Domain.Entities;
 
